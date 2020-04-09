@@ -8,7 +8,8 @@ Python Eye Tracker
     FPS = 24
     FourCC = ('M','S','V','C')
     Resolution = 1600 * 900
-    Max Buffer 64 - Result = 4707/4800 frames written
+    Max Buffer 64
+    Result = 4707/4800 frames written
 
 ### Setup 2
     setDuration = 300000
@@ -16,7 +17,8 @@ Python Eye Tracker
     FPS = 20
     FourCC = ('M','S','V','C')
     Resolution = 1600 * 900
-    Max Buffer 256 - Result 6006/6000 frames written
+    Max Buffer 256
+    **Result** 6006/6000 frames written
 
 ### Setup 3
     setDuration = 360000
@@ -24,7 +26,8 @@ Python Eye Tracker
     FPS = 20
     FourCC = ('M','S','V','C')
     Resolution = 1600 * 900
-    Max Buffer 256 - Result 7115/7200 frames written
+    Max Buffer 256
+    **Result** 7115/7200 frames written
 
 ### Setup 4
     setDuration = 360000
@@ -32,7 +35,8 @@ Python Eye Tracker
     FPS = 16
     FourCC = ('M','S','V','C')
     Resolution = 1600 * 900
-    Max Buffer 64 - Result 5766/5760 frames written
+    Max Buffer 64
+    **Result** 5766/5760 frames written
 
 *Make sure Python Interpreter  vs 3.5.2 is used*
 
