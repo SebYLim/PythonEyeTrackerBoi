@@ -1,23 +1,21 @@
-import numpy as np
-import matplotlib.pyplot as plt
-from matplotlib.animation import FuncAnimation
+import tkinter as tk, threading
+import imageio
+from PIL import Image, ImageTk
 
-fig, ax = plt.subplots()
-xdata, ydata = [], []
-ln, = plt.plot([], [], 'ro')
+video_name = "Seq1p1p2.mp4" #This is your video file path
+video = imageio.get_reader(video_name)
+        
+def stream(label):
+    for image in video.iter_data():
+        frame_image = ImageTk.PhotoImage(Image.fromarray(image))
+        label.config(image=frame_image)
+        label.image = frame_image
 
-def init():
-    ax.set_xlim(0, 2*np.pi)
-    ax.set_ylim(-1, 1)
-    return ln,
-
-def update(frame):
-    xdata.append(frame)
-    ydata.append(np.sin(frame))
-    ln.set_data(xdata, ydata)
-    return ln,
-
-ani = FuncAnimation(fig, update, frames=np.linspace(0, 2*np.pi, 128),
-                    init_func=init, blit=True)
-plt.show()
-
+if __name__ == "__main__":
+    root = tk.Tk()
+    my_label = tk.Label(root)
+    my_label.pack()
+    thread = threading.Thread(target=stream, args=(my_label,))
+    thread.daemon = 1
+    thread.start()
+    root.mainloop()

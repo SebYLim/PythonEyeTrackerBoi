@@ -1,11 +1,46 @@
 # PythonEyeTrackerBoi
+Python Eye Tracker Source
+=========================
 
-Some Viable Setups:
-setDuration -> 200000 ; setFrameRange -> (0, 6000) ; FPS -> 24 ; FourCC = ('M','S','V','C'); Resolution -> 1600 * 900; Max Buffer 64 - Result 4707/4800 frames written
-setDuration -> 300000 ; setFrameRange -> (0, 6300) ; FPS -> 20 ; FourCC = ('M','S','V','C'); Resolution -> 1600 * 900; Max Buffer 256 - Result 6006/6000 frames written
-setDuration -> 360000 ; setFrameRange -> (0, 7500) ; FPS -> 20 ; FourCC = ('M','S','V','C'); Resolution -> 1600 * 900; Max Buffer 256 - Result 7115/7200 frames written
-setDuration -> 360000 ; setFrameRange -> (0, 5800) ; FPS -> 16 ; FourCC = ('M','S','V','C'); Resolution -> 1600 * 900; Max Buffer 64 - Result 5766/5760 frames written
-Make sure Python Interpreter  vs 3.5.2 is used
+##Usable Setups:
+  ####Setup 1
+  setDuration = 200000
+  setFrameRange = (0, 6000)
+  FPS = 24
+  FourCC = ('M','S','V','C')
+  Resolution = 1600 * 900
+  Max Buffer 64 -
+    ######Result = 4707/4800 frames written
+
+  ####Setup 2
+  setDuration = 300000
+  setFrameRange = (0, 6300)
+  FPS = 20
+  FourCC = ('M','S','V','C')
+  Resolution = 1600 * 900
+  Max Buffer 256 -
+    ######Result 6006/6000 frames written
+
+  ####Setup 3
+  setDuration = 360000
+  setFrameRange = (0, 7500)
+  FPS = 20
+  FourCC = ('M','S','V','C')
+  Resolution = 1600 * 900
+  Max Buffer 256 -
+    ######Result 7115/7200 frames written
+
+  ####Setup 4
+  setDuration = 360000
+  setFrameRange = (0, 5800)
+  FPS = 16
+  FourCC = ('M','S','V','C')
+  Resolution = 1600 * 900
+  Max Buffer 64 -
+    ######Result 5766/5760 frames written
+    
+*Make sure Python Interpreter  vs 3.5.2 is used*
+
 Steps:
 1.    Set length of video which u want to create:
 a.    Go to class MainWindow(QMainWindow):
@@ -44,4 +79,3 @@ out = cv2.VideoWriter(author_file, -1, 24, (1600, 900))
 New:
 out = cv2.VideoWriter(author_file, cv2.VideoWriter_fourcc('M','S','V','C'), 16, (1600, 900))
 Now we use ‘MSVC’ codec for creating all videos
-
