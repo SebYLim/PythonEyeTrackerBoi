@@ -9,7 +9,7 @@ Python Eye Tracker
     FourCC = ('M','S','V','C')
     Resolution = 1600 * 900
     Max Buffer 64
-    __RESULT__ = 4707/4800 frames written
+    RESULT = 4707/4800 frames written
 
 ### Setup 2
     setDuration = 300000
