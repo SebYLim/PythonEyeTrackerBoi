@@ -7,10 +7,10 @@ run with Python. They detail the procedure and actual values for the parameters
 within the code.*
 
 ##Steps:
-1.    Set length of video which u want to create:
-    *    Go to class MainWindow(QMainWindow):
-    *    Change -> self.timeline.setDuration(360000)
-    *    Set in milliseconds the duration after which video should ‘auto terminate’
+1. Set length of video which u want to create:
+ * Go to class MainWindow(QMainWindow):
+ * Change -> self.timeline.setDuration(360000)
+ * Set in milliseconds the duration after which video should ‘auto terminate’
 2.    Set number of frames (maximum) that should be recorded in this duration.
         This is the number of screenshots/frames that the script will capture while running.
     *    Change self.timeline.setFrameRange(0, 5800).
