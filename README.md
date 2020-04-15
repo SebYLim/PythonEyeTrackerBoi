@@ -1,55 +1,59 @@
 Python Eye Tracker
 ==================
 
-##Overview
+## Overview
 *The following are the steps and viable setups used for the screen capture tests
 run with Python. They detail the procedure and actual values for the parameters
 within the code.*
 
-##Steps:
+## Steps:
 1. Set length of video which u want to create:
  * Go to class MainWindow(QMainWindow):
- * Change -> self.timeline.setDuration(360000)
+ *                   Change -> self.timeline.setDuration(360000)
  * Set in milliseconds the duration after which video should ‘auto terminate’
-2.    Set number of frames (maximum) that should be recorded in this duration.
-        This is the number of screenshots/frames that the script will capture while running.
-    *    Change self.timeline.setFrameRange(0, 5800).
-    *    Always start from 0 but set the upper cap accordingly.
-    *    In example above, the script will capture 5800 frames in 360 seconds (see point 1)
-3.    Set the buffer that works well for this video duration:
-    *    In method ‘def capture_screen():’
-            video_writer = ScreenRecorder(file_name + '/video_file.avi', 64)
-    *    Here 64, is the buffer available for screenshots. That is at most 64
-            screenshots can be saved in memory before the script writes it to video.
-    *    If FPS is low, then a small buffer is better. This way you don’t have
-            lots of screenshots that have not been written to video.
-    *    If FPS is high, then also a small buffer is better, as you will not
-            over burden the computer and give it time to write frames to video.
-            But this only works if duration is small as well (approximately 3 minutes)
-4.    Set FPS
-    *    This needs to be done consistently and at multiple places in script.
-    *    First – When screenshots will be used to create ‘basic’ video. This
-            video has no eye gaze mapped on to it.
-        *    In ‘class VideoOutputStream:’ inside init method
-                self.stream = cv2.VideoWriter(path, cv2.VideoWriter_fourcc('M','S','V','C'), 16, (1600, 900))
+2. Set number of frames (maximum) that should be recorded in this duration.
+ * This is the number of screenshots/frames that the script will capture while running.
+ * Change self.timeline.setFrameRange(0, 5800).
+ * Always start from 0 but set the upper cap accordingly.
+ * In example above, the script will capture 5800 frames in 360 seconds (see point 1)
+3. Set the buffer that works well for this video duration:
+ * In method def capture_screen():
+ *              video_writer = ScreenRecorder(file_name + '/video_file.avi', 64)
+ * Here 64, is the buffer available for screenshots. That is at most 64
+ *     screenshots can be saved in memory before the script writes it to video.
+ * If FPS is low, then a small buffer is better. This way you don’t have
+ *     lots of screenshots that have not been written to video.
+ * If FPS is high, then also a small buffer is better, as you will not
+ *     over burden the computer and give it time to write frames to video.
+ * But this only works if duration is small as well (approximately 3 minutes)
+4. Set FPS
+ * This needs to be done consistently and at multiple places in script.
+ * First – When screenshots will be used to create ‘basic’ video. This
+ *              video has no eye gaze mapped on to it.
+ * Inside init method class VideoOutputStream:
+ *                       self.stream = cv2.VideoWriter(path,
+ *                            cv2.VideoWriter_fourcc('M','S','V','C'), 16, (1600, 900))
+ * Here the frame rate/FPS is 16 (third parameter)
+ * Second: After ‘basic’ video is created’ and user clicks on "Write Author
+ * Video" button then the author video is created:
+ * In method: def create_video():
+ * Same as above – set the FPS which is the third parameter
+ * Be sure to use same value in both locations
+ * Third: Next we create 2 videos: One with just mouse pointer and another
+ * with both eye gaze and mouse cursor.
+ * In method def create_mouse_cursor_video (local_vid_file, filename):
+ * Same as above – set the FPS which is the third parameter
+ * Be sure to use same value in both locations
 
-ii.    Here the frame rate/FPS is 16 (third parameter)
-c.    Second: After ‘basic’ video is created’ and user clicks on "Write Author Video" button then the author video is created:
-i.    In method: ‘def create_video():’
-ii.    Same as above – set the FPS which is the third parameter
-iii.    Be sure to use same value in both locations
-d.    Third: Next we create 2 videos: One with just mouse pointer and another with both eye gaze and mouse cursor.
-i.    In method ‘def create_mouse_cursor_video (local_vid_file, filename):’
-ii.    Same as above – set the FPS which is the third parameter
-iii.    Be sure to use same value in both locations
 More Information:
-1.    We have changed codec used to create videos. New codec pro
-Earlier :
-Instead of cv2.VideoWriter_fourcc('M','S','V','C') we had ‘-1’
-out = cv2.VideoWriter(author_file, -1, 24, (1600, 900))
-New:
-out = cv2.VideoWriter(author_file, cv2.VideoWriter_fourcc('M','S','V','C'), 16, (1600, 900))
-Now we use ‘MSVC’ codec for creating all videos
+ * We have changed codec used to create videos. New codec pro
+ * Earlier :
+ * Instead of cv2.VideoWriter_fourcc('M','S','V','C') we had ‘-1’
+ *              out = cv2.VideoWriter(author_file, -1, 24, (1600, 900))
+ * New:
+ *      out = cv2.VideoWriter(author_file, cv2.VideoWriter_fourcc('M','S','V', 'C'), 16, (1600, 900))
+
+*Now we use ‘MSVC’ codec for creating all videos*
 
 ## Usable Setups:
 ### Setup 1
