@@ -20,7 +20,7 @@ within the code.*
  * In method def capture_screen():
  *              video_writer = ScreenRecorder(file_name + '/video_file.avi', 64)
  * Here 64, is the buffer available for screenshots. That is at most 64
- *     screenshots can be saved in memory before the script writes it to video.
+ * screenshots can be saved in memory before the script writes it to video.
  * If FPS is low, then a small buffer is better. This way you don’t have
  * lots of screenshots that have not been written to video.
  * If FPS is high, then also a small buffer is better, as you will not
@@ -48,7 +48,7 @@ More Information:
  * We have changed codec used to create videos. New codec pro
  * Earlier :
  * Instead of cv2.VideoWriter_fourcc('M','S','V','C') we had ‘-1’
- *              out = cv2.VideoWriter(author_file, -1, 24, (1600, 900))
+ *      out = cv2.VideoWriter(author_file, -1, 24, (1600, 900))
  * New:
  *      out = cv2.VideoWriter(author_file, cv2.VideoWriter_fourcc('M','S','V', 'C'), 16, (1600, 900))
 
