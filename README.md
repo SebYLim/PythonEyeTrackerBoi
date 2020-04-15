@@ -9,7 +9,7 @@ within the code.*
 ## Steps:
 1. Set length of video which u want to create:
  * Go to class MainWindow(QMainWindow):
- *              Change -> self.timeline.setDuration(360000)
+ *       Change -> self.timeline.setDuration(360000)
  * Set in milliseconds the duration after which video should ‘auto terminate’
 2. Set number of frames (maximum) that should be recorded in this duration.
  * This is the number of screenshots/frames that the script will capture while running.
@@ -18,7 +18,7 @@ within the code.*
  * In example above, the script will capture 5800 frames in 360 seconds (see point 1)
 3. Set the buffer that works well for this video duration:
  * In method def capture_screen():
- *              video_writer = ScreenRecorder(file_name + '/video_file.avi', 64)
+ *       video_writer = ScreenRecorder(file_name + '/video_file.avi', 64)
  * Here 64, is the buffer available for screenshots. That is at most 64
  * screenshots can be saved in memory before the script writes it to video.
  * If FPS is low, then a small buffer is better. This way you don’t have
@@ -31,7 +31,7 @@ within the code.*
  * First – When screenshots will be used to create ‘basic’ video. This
  * video has no eye gaze mapped on to it.
  * Inside init method class VideoOutputStream:
- *            self.stream = cv2.VideoWriter(path, cv2.VideoWriter_fourcc('M','S','V','C'), 16, (1600, 900))
+ *      self.stream = cv2.VideoWriter(path, cv2.VideoWriter_fourcc('M','S','V','C'), 16, (1600, 900))
  * Here the frame rate/FPS is 16 (third parameter)
  * Second: After ‘basic’ video is created’ and user clicks on "Write Author
  * Video" button then the author video is created:
