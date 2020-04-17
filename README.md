@@ -95,3 +95,9 @@ More Information:
 #### Result
     5766/5760 frames written
 *Make sure Python Interpreter v 3.5.2 is used*
+
+
+#### Data Capture
+Within the DataCapture folder is the code, written in c#, to capture the screen and gaze data and output a human-readable with the data. 
+Screen information is available on the first line (height and width), with frame # mapped to each gaze data point in the first three columns.
+Open the file with you favorite C# editor, download the required packages, and then the program is ready to run.
