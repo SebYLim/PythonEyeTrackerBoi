@@ -1,12 +1,12 @@
-Python Eye Tracker
+Tobii 4C Eye Tracker Animation Project
 ==================
-
 ## Overview
+Seeking to understand the movements of a person's eyes when watching a video, this senior design project overlays gaze data from a Tobii 4C Eye Tracker onto a video. This project took the first steps to try to classify complicated eye movements such as fixations and saccades with animations. Having practical applications in educational fields to discover where students are focusing their attention, our team hopes to design an interactive display in the future.
+## Steps:
 *The following are the steps and viable setups used for the screen capture tests
 run with Python. They detail the procedure and actual values for the parameters
 within the code.*
 
-## Steps:
 1. Set length of video which u want to create:
  * Go to class MainWindow(QMainWindow):
  *       Change -> self.timeline.setDuration(360000)
